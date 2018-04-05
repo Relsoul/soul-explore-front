@@ -1,17 +1,20 @@
 <template>
     <div >
-        <p>index</p>
-        <mu-appbar title="Title">
-            <mu-icon-button icon="menu" slot="left"/>
-            <mu-flat-button label="expand_more" slot="right"/>
-            <mu-icon-button icon="expand_more" slot="right"/>
-        </mu-appbar>
-        <mu-row gutter>
-            <mu-col width="50" tablet="50" desktop="33" style="margin: 0 auto;">
-                <div class="main-box" data-tilt-scale="1.1" style="height: 200px;background: linear-gradient(135deg, #fc00ff , #00dbde);"></div>
-            </mu-col>
-        </mu-row>
-        <img :src="bg.bgUrl" alt="">
+        <div class="index-loading">
+             <div class="main-box-wrap">
+                 <div class="main-box" data-tilt-scale="1.1" >
+                     <div class="main-box__bg" :style="'background-image: url('+bg.bgUrl+')'">
+
+                     </div>
+                    <div class="main-box-content">
+
+                    </div>
+                 </div>
+             </div>
+
+            <div width="100" class="img-bg" :style="'background-image: url('+bg.bgUrl+')'">
+            </div>
+        </div>
     </div>
 </template>
 
