@@ -69,7 +69,7 @@ module.exports = function (ops) {
                     exclude: /node_modules/
                 },
                 {
-                    test: /\.css$/, use: "css-loader"
+                    test: /\.css$/, use: ["style-loader","css-loader"]
                 },
                 {
                     test: /\.vue$/,

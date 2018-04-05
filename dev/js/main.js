@@ -7,6 +7,9 @@ import MuseUI from 'muse-ui';
 import 'muse-ui/dist/muse-ui.css';
 import 'muse-ui/dist/theme-TEAL.css'; // 使用 carbon 主题
 import store from './store/index';
+import VanillaTilt from 'vanilla-tilt';
+
+window.VanillaTilt = VanillaTilt;
 
 import { Api } from './apis';
 
