@@ -1,0 +1,12 @@
+{
+  "presets": ["es2015","stage-3"],
+  "plugins": ["transform-runtime"],
+  "ignore":[
+    "jquery.js",
+    "jquery.min.js",
+    "angular.js",
+    "angular.min.js",
+    "bootstrap.js",
+    "bootstrap.min.js"
+  ]
+}

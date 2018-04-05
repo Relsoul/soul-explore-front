@@ -1,0 +1,214 @@
+$cdn: '../..';
+$browser-default-font-size:100px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;;
+}
+
+#__bs_notify__{
+  font-size: 16px !important;
+}
+
+html,body{
+  width: 100%;
+  height: 100%;
+}
+
+.icon{
+  background-size: cover;
+  display: inline-block;
+}
+
+body{
+  font-size:16px;
+}
+
+h1  {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img{
+  max-width: 100%;
+}
+
+.left {
+  float: left;
+}
+
+.ellipsis-text{
+  text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden
+}
+
+.clearfix {
+  *zoom: 1;
+  overflow: hidden;
+  clear: both
+}
+
+.right {
+  float: right;
+}
+
+.flex{
+  display: flex;
+}
+
+.flex__item{
+  flex:1;
+}
+
+.wrap1080{
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.line-height1{
+  line-height: 1;
+}
+
+button, input {
+  outline: none;
+  border: none;
+}
+
+//helper-class
+.hdx-hide{
+  display: none !important;
+}
+.hdx-show{
+  display: block !important;
+}
+
+// 初始化某些样式,方便覆盖原来的样式
+
+%init {
+  input {
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// 按钮
+
+%green-btn {
+  width: 140px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  background: #76bf47;
+  border-radius: 4px;
+}
+
+// 函数部分
+
+/*
+
+居中请在父级声明position
+
+*/
+
+// 计算水平居中
+@mixin sumHorizontalCenter($width) {
+  position: absolute;
+  left: 50%;
+  margin-left: -($width/2);
+}
+
+// 计算垂直居中
+@mixin sumVerticalCenter($height) {
+  position: absolute;
+  top: 50%;
+  margin-left: -($height/2);
+}
+
+// 计算水平垂直居中
+@mixin sumHVCenter($width,$height) {
+  @include sumHorizontalCenter($width);
+  @include sumVerticalCenter($height)
+}
+
+// 不定宽水平居中
+@mixin sumAutoHorizontalCenter() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+// 不定宽垂直居中
+@mixin sumAutoVerticalCenter() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// 不定宽水平垂直居中
+@mixin sumAutoHVCenter() {
+  @include sumAutoHorizontalCenter();
+  @include sumAutoVerticalCenter();
+}
+
+/*
+
+  px2rem
+
+*/
+
+@function pxTorem($px){//$px为需要转换的字号
+  @return $px / $browser-default-font-size * 1rem;
+}
+
+/**
+  简单/2
+ */
+@function pxExcept2($px){//$px为需要转换的字号
+  @return $px / 2;
+}
+
+/**
+  font字号
+ */
+@function fontExcept($px){//$px为需要转换的字号
+  @return $px / 1.75;
+}
+
+// 字体不采用rem设置.误差太大. 需要删除原有的meta标签
+@mixin font-dpr($font-size){
+  font-size: $font-size;
+
+  [data-dpr="2"] & {
+    font-size: $font-size * 2;
+  }
+
+  [data-dpr="3"] & {
+    font-size: $font-size * 3;
+  }
+}

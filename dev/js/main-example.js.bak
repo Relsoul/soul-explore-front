@@ -1,0 +1,48 @@
+import {EasyNav} from './module/easyNav'
+import request from "./module/ajax"
+import conf from "./conf"
+import {uuid} from "./module/tools"
+
+window.EasyNav=EasyNav;
+
+window.conf=conf;
+
+window.request=request;
+
+function isExistCompontent(elem) {
+    return $(elem).length>0?true:false;
+}
+
+function isExistToken() {
+    if(!localStorage.id||!localStorage.token){
+        return false;
+    }
+    return true;
+}
+
+// 初次加载设置默认id与token
+if(!isExistToken()){
+    localStorage.id=window.conf.id;
+    localStorage.token=window.conf.token;
+}
+
+if(!localStorage.getItem('guid')){
+    localStorage.setItem(('guid'),uuid())
+}
+
+function isExistCompontent(elem) {
+    return $(elem).length>0?true:false;
+}
+
+const allCompontents={
+    ".js-valid-ticket":wuhanValidTicket
+};
+
+$(function () {
+    for(let item of Object.keys(allCompontents)){
+        if(isExistCompontent(`${item}`)){
+            //alert(`执行:${item}`,)
+            allCompontents[item]();
+        }
+    }
+});
