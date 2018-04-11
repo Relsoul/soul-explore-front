@@ -8,12 +8,22 @@ import 'muse-ui/dist/muse-ui.css';
 import 'muse-ui/dist/theme-TEAL.css'; // 使用 carbon 主题
 import store from './store/index';
 import VanillaTilt from 'vanilla-tilt';
+import jsCookie  from 'js-cookie';
+import moment from 'moment';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+// require styles
+import 'swiper/dist/css/swiper.css';
 
+window.moment = moment;
+window.jsCookie = jsCookie;
 window.VanillaTilt = VanillaTilt;
 
-import { Api } from './apis';
+import { Api, BackEnd } from './apis';
 
 const api = new Api();
+const backEnd = new BackEnd();
+
+Vue.prototype.$backEnd = backEnd;
 
 // remLib();
 
@@ -32,6 +42,7 @@ const routerUrl = {
 Vue.use(routerUrl);
 Vue.use(VueRouter);
 Vue.use(MuseUI);
+Vue.use(VueAwesomeSwiper);
 console.log('store', store);
 // 0. 如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)
 

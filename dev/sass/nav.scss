@@ -1,0 +1,20 @@
+.nav-main{
+  position:fixed;
+  top:20px;
+  left: 20px;
+  z-index: 233;
+
+  .nav-main__menu{
+    color: #fff;
+  }
+
+  .nav-main__close{
+    position: absolute;
+    right: 20px;
+    top:20px;
+  }
+}
+
+.mu-list.nav-list{
+  padding-top: 75px;
+}

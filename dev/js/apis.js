@@ -5,8 +5,14 @@ const backEndHost = 'http://127.0.0.1:6677';
 class BackEnd {
     constructor() {
         this.backEndAxios = axios.create({
-            baseURL: 'http://map.atlasyun.com',
+            baseURL: 'http://127.0.0.1:6677',
         });
+    }
+    getNav() {
+        return this.backEndAxios.get(`/wp-json/index/nav`);
+    }
+    getPost(args = {}) {
+        return this.backEndAxios.get('/wp-json/wp/v2/posts', args);
     }
 }
 

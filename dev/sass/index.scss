@@ -12,6 +12,11 @@
   height: 50%;
   border: none;
   transform: scale(1);
+
+  .main-box__title.mu-card-title,.main-box__subtitle.mu-card-sub-title{
+    color: #fff !important;
+    text-shadow: 1px 1px 10px rgba(0,0,0,1);
+  }
 }
 
 .main-box__bg{
@@ -37,3 +42,36 @@
 .index-loading{
   position: relative;
 }
+
+.index-card-wrap{
+
+  .mu-card-text{
+    padding: 0;
+  }
+}
+
+.index-card-content{
+  position: relative;
+
+  .index-card-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 233;
+    width: 100%;
+
+    .mu-card-title,.mu-card-sub-title{
+      color: #fff;
+      text-shadow: 1px 1px 10px rgba(0,0,0,1);
+    }
+
+  }
+
+  .index-card-swiper-slide{
+    background-position: 50%;
+    background-size: cover;
+    height: 350px;
+  }
+}
+
